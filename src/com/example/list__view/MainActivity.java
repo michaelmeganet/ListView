@@ -7,6 +7,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -21,7 +22,16 @@ public class MainActivity extends Activity {
 	}
 
 	private void setListListener() {
+		
+		String[] values = getResources().getStringArray(R.array.list_options);
+		
+		values[0] = "Zues";
+		
+		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, values);
+		
 		ListView list = (ListView) findViewById(R.id.list);
+		
+		list.setAdapter(adapter);
 		
 		list.setOnItemClickListener(new OnItemClickListener() {
 
